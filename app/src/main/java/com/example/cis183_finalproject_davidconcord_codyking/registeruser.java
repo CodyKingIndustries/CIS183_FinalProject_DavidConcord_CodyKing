@@ -26,6 +26,8 @@ public class registeruser extends AppCompatActivity
         btn_j_r_back = findViewById(R.id.btn_v_r_back);
 
         mainActivity = new Intent(registeruser.this, MainActivity.class);
+
+        backButtonEvent();
     }
 
     public void backButtonEvent()

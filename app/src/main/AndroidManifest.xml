@@ -13,8 +13,11 @@
         android:theme="@style/Theme.CIS183_FinalProject_DavidConcord_CodyKing"
         tools:targetApi="31">
         <activity
-            android:name=".regesteruser"
+            android:name=".registeruser"
             android:exported="false" />
+        <activity
+            android:name=".Calendar"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
