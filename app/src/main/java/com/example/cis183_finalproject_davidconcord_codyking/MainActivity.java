@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.content.Intent;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import android.os.Bundle;
 
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity
 
     public void calendarScreen()
     {
-        Intent goToCalendar = new Intent(this, Calendar.class);
+        Intent goToCalendar = new Intent(this, ChooseOption.class);
         startActivity(goToCalendar);
     }
 }

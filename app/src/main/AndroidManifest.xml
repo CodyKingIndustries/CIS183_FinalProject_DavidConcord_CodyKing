@@ -19,6 +19,14 @@
             android:name=".Calendar"
             android:exported="false"/>
         <activity
+            android:name=".ChooseOption"
+            android:exported="false"/>
+        <activity
+            android:name=".event_Creator"
+            android:exported="false"/>
+
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

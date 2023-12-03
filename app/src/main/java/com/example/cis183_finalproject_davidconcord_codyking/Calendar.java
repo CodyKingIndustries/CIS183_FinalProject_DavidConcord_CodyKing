@@ -1,56 +1,49 @@
 package com.example.cis183_finalproject_davidconcord_codyking;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.CalendarView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cis183_finalproject_davidconcord_codyking.MyEvent;
+import com.example.cis183_finalproject_davidconcord_codyking.MyEventAdapter;
+import com.example.cis183_finalproject_davidconcord_codyking.R;
+
+import java.util.ArrayList;
 
 public class Calendar extends AppCompatActivity {
 
-    CalendarView calendarView;
-
+    private MyEventAdapter eventAdapter;
+    private ArrayList<MyEvent> eventList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_ui);
 
-        calendarView = findViewById(R.id.calendarView);
+        ListView listView = findViewById(R.id.listView);
+        eventList = new ArrayList<>();
+        eventAdapter = new MyEventAdapter(this, eventList);
+        listView.setAdapter(eventAdapter);
+    }
 
-        //setting the calendar to the current day
-        java.util.Calendar today = java.util.Calendar.getInstance();
-        calendarView.setDate(today.getTimeInMillis());
+    private void addEvent(String date, String time, String description) {
+        MyEvent newEvent = new MyEvent(date, time, description);
+        eventList.add(newEvent);
 
-        dateChangeListener();
-        customizeCalendarText();
+        // Sort events by date if needed
+        sortEventsByDate();
 
+        // Notify the adapter of the changes
+        eventAdapter.notifyDataSetChanged();
+    }
+
+    private void sortEventsByDate() {
 
     }
 
-    private void dateChangeListener() {
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+    public void onAddEventButtonClick(View view) {
 
-                String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-                Toast.makeText(Calendar.this, "", Toast.LENGTH_SHORT).show();
-                ;
-            }
-        });
-
-    }
-
-    private void customizeCalendarText() {
-        // Get the child TextViews of the CalendarView
-        for (int i = 0; i < calendarView.getChildCount(); i++) {
-            if (calendarView.getChildAt(i) instanceof TextView) {
-                TextView child = (TextView) calendarView.getChildAt(i);
-                child.setTextColor(Color.WHITE);
-            }
-        }
+        addEvent("", "", "");
     }
 }

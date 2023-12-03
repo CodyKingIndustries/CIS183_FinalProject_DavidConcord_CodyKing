@@ -45,10 +45,11 @@ public class registeruser extends AppCompatActivity
         et_j_r_password = findViewById(R.id.et_v_r_password);
         et_j_r_email = findViewById(R.id.et_v_r_email);
         et_j_r_age = findViewById(R.id.et_v_r_age);
-        tv_j_r_blankerror = findViewById(R.id.tv_v_r_blankerror);
-        tv_j_r_usernameerror = findViewById(R.id.tv_v_r_usernameerror);
+        //tv_j_r_blankerror = findViewById(R.id.tv_v_r_blankerror);
+        //tv_j_r_usernameerror = findViewById(R.id.tv_v_r_usernameerror);
 
         mainActivity = new Intent(registeruser.this, MainActivity.class);
+        udbHelper = new UserDatabaseHelper(this);
 
         backButtonEvent();
     }
