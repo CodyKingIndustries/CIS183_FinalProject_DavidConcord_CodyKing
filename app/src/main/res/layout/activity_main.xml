@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#45373C"
+    android:background="#732860"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="189dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/main_image_foreground" />
 
     <TextView
         android:id="@+id/tv_v_newuser"
@@ -22,23 +33,25 @@
 
     <TextView
         android:id="@+id/tv_v_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="221dp"
+        android:layout_height="97dp"
+        android:autoText="false"
         android:fontFamily="@font/carter_one"
         android:text="Schedule Keeper"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintVertical_bias="0.113" />
 
     <EditText
         android:id="@+id/et_v_username"
         android:layout_width="167dp"
         android:layout_height="41dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="236dp"
         android:ems="10"
         android:inputType="text"
         android:textSize="20sp"
@@ -50,7 +63,7 @@
         android:id="@+id/et_v_password"
         android:layout_width="167dp"
         android:layout_height="41dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="344dp"
         android:ems="10"
         android:inputType="text"
         android:textSize="20sp"
@@ -62,12 +75,11 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="292dp"
         android:text="Password"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,11 +87,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="196dp"
         android:text="Username"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,5 +129,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_v_password"
         app:layout_constraintVertical_bias="0.898" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

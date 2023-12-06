@@ -5,7 +5,7 @@
     android:id="@+id/tv_v_username"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#45373C"
+    android:background="#732860"
     tools:context=".registeruser">
 
     <Button
