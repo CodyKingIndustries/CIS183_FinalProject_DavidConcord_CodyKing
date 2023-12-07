@@ -1,6 +1,6 @@
 package com.example.cis183_finalproject_davidconcord_codyking;
 import java.io.Serializable;
-public class MyEvent {
+public class MyEvent implements Serializable{
 
     private String date;
     private String time;

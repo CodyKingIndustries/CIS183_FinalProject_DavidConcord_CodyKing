@@ -36,7 +36,7 @@ public class ChooseOption extends AppCompatActivity {
 
     private void goToCalendar()
     {
-        Intent intent2 = new Intent(this, Calendar.class);
+        Intent intent2 = new Intent(this, CalendarUI.class);
         startActivity(intent2);
     }
 

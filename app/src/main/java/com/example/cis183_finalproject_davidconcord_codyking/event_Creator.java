@@ -1,5 +1,6 @@
 package com.example.cis183_finalproject_davidconcord_codyking;
-import android.app.Activity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -8,12 +9,25 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class event_Creator extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
+
+public class event_Creator extends AppCompatActivity {
 
     private Spinner dateSpinner;
     private Spinner timeSpinner;
     private EditText etEventDescription;
     private Button btnSaveEvent;
+    private ArrayList<MyEvent> selectedEventList;
+    private MyEventAdapter adapter;
+    private Button btnGoBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +38,16 @@ public class event_Creator extends Activity {
         timeSpinner = findViewById(R.id.timeSpinner);
         etEventDescription = findViewById(R.id.etEventDescription);
         btnSaveEvent = findViewById(R.id.btnSaveEvent);
+        btnGoBack = findViewById(R.id.btnGoBack);
 
         // Populate date spinner
-        String[] dates = {"2023-12-01", "2023-12-02", "2023-12-03"};
-        ArrayAdapter<String> dateAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dates);
-        dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dateSpinner.setAdapter(dateAdapter);
+        populateDateSpinner();
 
         // Populate time spinner
-        String[] times = {"08:00 AM", "12:00 PM", "03:00 PM"};
-        ArrayAdapter<String> timeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
-        timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        timeSpinner.setAdapter(timeAdapter);
+        populateTimeSpinner();
+
+        // Initialize selectedEventList
+        selectedEventList = new ArrayList<>();
 
         // Button click event
         btnSaveEvent.setOnClickListener(new View.OnClickListener() {
@@ -46,14 +58,59 @@ public class event_Creator extends Activity {
                 String selectedTime = timeSpinner.getSelectedItem().toString();
                 String eventDescription = etEventDescription.getText().toString();
 
-                saveEvent(selectedDate, selectedTime, eventDescription);
+                // Create a MyEvent object with the selected data
+                MyEvent myEvent = new MyEvent(selectedDate, selectedTime, eventDescription);
+
+                // Save the event to CalendarUI
+                addEventToCalendar(myEvent);
+
+
+                etEventDescription.setText("");
 
                 Toast.makeText(event_Creator.this, "Event Saved: " + selectedDate + " " + selectedTime + "\nDescription: " + eventDescription, Toast.LENGTH_SHORT).show();
             }
         });
+
+        btnGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Go back to ChooseOption screen
+                Intent i = new Intent(event_Creator.this, ChooseOption.class);
+                startActivity(i);
+            }
+        });
     }
 
-    private void saveEvent(String date, String time, String description) {
+    private void populateDateSpinner() {
 
+        ArrayList<String> dates = new ArrayList<>();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        for (int i = 0; i < 365; i++) {
+            dates.add(dateFormat.format(new Date(System.currentTimeMillis() + i * 24 * 60 * 60 * 1000)));
+        }
+
+        ArrayAdapter<String> dateAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dates);
+        dateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dateSpinner.setAdapter(dateAdapter);
+    }
+
+    private void populateTimeSpinner() {
+
+        ArrayList<String> times = new ArrayList<>();
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
+        for (int i = 0; i < 24; i++) {
+            times.add(timeFormat.format(new Date(2023, 1, 1, i, 0)));
+        }
+
+        ArrayAdapter<String> timeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
+        timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeSpinner.setAdapter(timeAdapter);
+    }
+
+    private void addEventToCalendar(MyEvent myEvent) {
+
+        Intent intent = new Intent(event_Creator.this, CalendarUI.class);
+        intent.putExtra("myEvent", myEvent);
+        startActivity(intent);
     }
 }
