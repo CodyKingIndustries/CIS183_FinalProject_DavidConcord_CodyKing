@@ -61,10 +61,10 @@ public class event_Creator extends AppCompatActivity {
                 // Create a MyEvent object with the selected data
                 MyEvent myEvent = new MyEvent(selectedDate, selectedTime, eventDescription);
 
-                // Save the event to CalendarUI
+                // Save the selected event to CalendarUI
                 addEventToCalendar(myEvent);
 
-
+                // Optionally, clear the input fields after saving
                 etEventDescription.setText("");
 
                 Toast.makeText(event_Creator.this, "Event Saved: " + selectedDate + " " + selectedTime + "\nDescription: " + eventDescription, Toast.LENGTH_SHORT).show();
@@ -79,10 +79,12 @@ public class event_Creator extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        // ... (any additional initialization code)
     }
 
     private void populateDateSpinner() {
-
+        // Populate date spinner with, for example, the next 365 days
         ArrayList<String> dates = new ArrayList<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         for (int i = 0; i < 365; i++) {
@@ -95,11 +97,11 @@ public class event_Creator extends AppCompatActivity {
     }
 
     private void populateTimeSpinner() {
-
+        // Populate time spinner with, for example, hourly intervals
         ArrayList<String> times = new ArrayList<>();
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
         for (int i = 0; i < 24; i++) {
-            times.add(timeFormat.format(new Date(2023, 1, 1, i, 0)));
+            times.add(timeFormat.format(new Date(2023, 1, 1, i, 0))); // Year, Month, Day, Hour, Minute
         }
 
         ArrayAdapter<String> timeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
@@ -108,7 +110,7 @@ public class event_Creator extends AppCompatActivity {
     }
 
     private void addEventToCalendar(MyEvent myEvent) {
-
+        // Pass the event to CalendarUI using Intent
         Intent intent = new Intent(event_Creator.this, CalendarUI.class);
         intent.putExtra("myEvent", myEvent);
         startActivity(intent);
