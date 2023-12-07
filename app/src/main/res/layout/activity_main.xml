@@ -8,6 +8,20 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="559dp"
+        android:layout_height="568dp"
+        android:layout_marginBottom="64dp"
+        android:paddingLeft="0px"
+        android:paddingTop="0px"
+        android:paddingRight="0px"
+        app:layout_constraintBottom_toTopOf="@+id/tv_v_newuser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/arc_foreground" />
+
+    <ImageView
         android:id="@+id/imageView3"
         android:layout_width="189dp"
         android:layout_height="169dp"
@@ -99,18 +113,20 @@
     <Button
         android:id="@+id/btn_v_register"
         android:layout_width="196dp"
-        android:layout_height="69dp"
+        android:layout_height="0dp"
         android:layout_marginTop="560dp"
+        android:layout_marginBottom="102dp"
         android:backgroundTint="#FFFFFF"
         android:drawableTint="#388E3C"
         android:text="Register"
         android:textColor="#000000"
         android:textColorLink="#FFFFFF"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btn_v_signIn"
