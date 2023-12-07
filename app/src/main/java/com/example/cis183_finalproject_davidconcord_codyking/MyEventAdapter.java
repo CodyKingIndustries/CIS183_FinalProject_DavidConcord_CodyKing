@@ -22,7 +22,7 @@ public class MyEventAdapter extends ArrayAdapter<MyEvent> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_my_event, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_my_event, null);
         }
 
         MyEvent event = getItem(position);

@@ -16,7 +16,7 @@
             android:name=".registeruser"
             android:exported="false" />
         <activity
-            android:name=".Calendar"
+            android:name=".CalendarUI"
             android:exported="false"/>
         <activity
             android:name=".ChooseOption"

@@ -1,5 +1,5 @@
 package com.example.cis183_finalproject_davidconcord_codyking;
-
+import java.io.Serializable;
 public class MyEvent {
 
     private String date;

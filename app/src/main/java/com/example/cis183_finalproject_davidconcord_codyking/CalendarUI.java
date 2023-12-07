@@ -5,13 +5,9 @@ import android.view.View;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cis183_finalproject_davidconcord_codyking.MyEvent;
-import com.example.cis183_finalproject_davidconcord_codyking.MyEventAdapter;
-import com.example.cis183_finalproject_davidconcord_codyking.R;
-
 import java.util.ArrayList;
 
-public class Calendar extends AppCompatActivity {
+public class CalendarUI extends AppCompatActivity {
 
     private MyEventAdapter eventAdapter;
     private ArrayList<MyEvent> eventList;

@@ -34,12 +34,14 @@ public class ChooseOption extends AppCompatActivity {
         });
     }
 
-    private void goToCalendar() {
-        Intent intent = new Intent(this, Calendar.class);
-        startActivity(intent);
+    private void goToCalendar()
+    {
+        Intent intent2 = new Intent(this, Calendar.class);
+        startActivity(intent2);
     }
 
-    private void goToEventCreator() {
+    private void goToEventCreator()
+    {
         Intent intent = new Intent(this, event_Creator.class);
         startActivity(intent);
     }
