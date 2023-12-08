@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity
 
     Button btn_j_signIn;
     Intent registerUser;
+    Intent logInUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity
         signInButtonEvent();
 
         registerUser = new Intent(MainActivity.this, registeruser.class);
+
+        logInUser = new Intent(MainActivity.this, LogInPage.class);
     }
 
     public void registerNewUserButtonEvent()
@@ -58,8 +61,9 @@ public class MainActivity extends AppCompatActivity
     {
         btn_j_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                calendarScreen();
+            public void onClick(View view)
+            {
+                startActivity(logInUser);
             }
         });
     }

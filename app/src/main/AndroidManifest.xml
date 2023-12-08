@@ -13,19 +13,23 @@
         android:theme="@style/Theme.CIS183_FinalProject_DavidConcord_CodyKing"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterPage"
+            android:exported="false" />
+        <activity
+            android:name=".LogInPage"
+            android:exported="false" />
+        <activity
             android:name=".registeruser"
             android:exported="false" />
         <activity
             android:name=".CalendarUI"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ChooseOption"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".event_Creator"
-            android:exported="false"/>
-
-
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
