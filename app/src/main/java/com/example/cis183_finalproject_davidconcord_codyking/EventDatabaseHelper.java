@@ -19,7 +19,8 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (eventname TEXT PRIMARY KEY NOT NULL, ename TEXT, etime TEXT, edate TEXT, eauther TEXT, egid TEXT);");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (eventname TEXT PRIMARY KEY NOT NULL, " +
+                "ename TEXT, etime TEXT, edate TEXT, eauther TEXT, egid TEXT, eventpassword TEXT);");
     }
 
     @Override
@@ -78,20 +79,22 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
             do
             {
                 n = cursor.getString(cursor.getColumnIndex("eventname"));
-                t = cursor.getString(cursor.getColumnIndex("eventtime"));
-                d = cursor.getString(cursor.getColumnIndex("eventdate"));
-                a = cursor.getString(cursor.getColumnIndex("eventauthor"));
-                i = cursor.getString(cursor.getColumnIndex("eventgid"));
+                t = cursor.getString(cursor.getColumnIndex("etime")); // Corrected column name
+                d = cursor.getString(cursor.getColumnIndex("edate")); // Corrected column name
+                a = cursor.getString(cursor.getColumnIndex("eauther")); // Corrected column name
+                i = cursor.getString(cursor.getColumnIndex("egid")); // Corrected column name
 
                 listEvents.add(new Event(n, t, d, a, i));
             }
             while (cursor.moveToNext());
         }
 
+        cursor.close();
         db.close();
 
         return listEvents;
     }
+
 
     public void addNewEvent(Event e)
     {

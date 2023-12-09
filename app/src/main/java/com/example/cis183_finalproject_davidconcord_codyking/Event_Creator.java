@@ -19,7 +19,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 
-public class event_Creator extends AppCompatActivity {
+public class Event_Creator extends AppCompatActivity {
 
     private Spinner dateSpinner;
     private Spinner timeSpinner;
@@ -58,16 +58,14 @@ public class event_Creator extends AppCompatActivity {
                 String selectedTime = timeSpinner.getSelectedItem().toString();
                 String eventDescription = etEventDescription.getText().toString();
 
-                // Create a MyEvent object with the selected data
                 MyEvent myEvent = new MyEvent(selectedDate, selectedTime, eventDescription);
 
                 // Save the selected event to CalendarUI
                 addEventToCalendar(myEvent);
 
-                // Optionally, clear the input fields after saving
                 etEventDescription.setText("");
 
-                Toast.makeText(event_Creator.this, "Event Saved: " + selectedDate + " " + selectedTime + "\nDescription: " + eventDescription, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Event_Creator.this, "Event Saved: " + selectedDate + " " + selectedTime + "\nDescription: " + eventDescription, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -75,12 +73,12 @@ public class event_Creator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Go back to ChooseOption screen
-                Intent i = new Intent(event_Creator.this, ChooseOption.class);
+                Intent i = new Intent(Event_Creator.this, ChooseOption.class);
                 startActivity(i);
             }
         });
 
-        // ... (any additional initialization code)
+
     }
 
     private void populateDateSpinner() {
@@ -97,11 +95,11 @@ public class event_Creator extends AppCompatActivity {
     }
 
     private void populateTimeSpinner() {
-        // Populate time spinner with, for example, hourly intervals
+
         ArrayList<String> times = new ArrayList<>();
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault());
         for (int i = 0; i < 24; i++) {
-            times.add(timeFormat.format(new Date(2023, 1, 1, i, 0))); // Year, Month, Day, Hour, Minute
+            times.add(timeFormat.format(new Date(2023, 1, 1, i, 0)));
         }
 
         ArrayAdapter<String> timeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
@@ -111,7 +109,7 @@ public class event_Creator extends AppCompatActivity {
 
     private void addEventToCalendar(MyEvent myEvent) {
         // Pass the event to CalendarUI using Intent
-        Intent intent = new Intent(event_Creator.this, CalendarUI.class);
+        Intent intent = new Intent(Event_Creator.this, CalendarUI.class);
         intent.putExtra("myEvent", myEvent);
         startActivity(intent);
     }

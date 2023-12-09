@@ -42,7 +42,7 @@ public class ChooseOption extends AppCompatActivity {
 
     private void goToEventCreator()
     {
-        Intent intent = new Intent(this, event_Creator.class);
+        Intent intent = new Intent(this, Event_Creator.class);
         startActivity(intent);
     }
 }
