@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#732860"
     tools:context=".ChooseOption">
 
-    <Button
-        android:id="@+id/btnGoToCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="Go to Calendar"/>
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="508dp"
+        android:layout_height="478dp"
+        android:layout_marginBottom="204dp"
+        android:paddingLeft="0px"
+        android:paddingTop="0px"
+        android:paddingRight="0px"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_v_ct_tasks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/arc_foreground" />
 
-    <Button
-        android:id="@+id/btnGoToEventCreator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnGoToCalendar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Go to Event Creator"/>
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/iv_v_ct_tasks"
+        android:layout_width="213dp"
+        android:layout_height="189dp"
+        android:layout_marginTop="392dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/task_foreground" />
+
+    <ImageView
+        android:id="@+id/iv_v_ct_calender"
+        android:layout_width="221dp"
+        android:layout_height="199dp"
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/calender_foreground" />
+
+    <ImageView
+        android:id="@+id/iv_v_ct_homebtn"
+        android:layout_width="74dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="332dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/homehouse_foreground" />
+</androidx.constraintlayout.widget.ConstraintLayout>

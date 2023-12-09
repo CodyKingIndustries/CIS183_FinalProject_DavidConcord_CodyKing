@@ -19,7 +19,7 @@ public class CalendarUI extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_ui);
 
-        ListView listView = findViewById(R.id.listView);
+        ListView lv_j_c_calender = findViewById(R.id.lv_v_c_calender);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -30,7 +30,7 @@ public class CalendarUI extends AppCompatActivity {
                 eventList = new ArrayList<>();
                 eventList.add(myEvent);
                 eventAdapter = new MyEventAdapter(this, eventList);
-                listView.setAdapter(eventAdapter);
+                lv_j_c_calender.setAdapter(eventAdapter);
             }
         }
     }
