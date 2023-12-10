@@ -4,6 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#732860"
     tools:context=".TaskList">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="559dp"
+        android:layout_height="568dp"
+        android:layout_marginBottom="236dp"
+        android:paddingLeft="0px"
+        android:paddingTop="0px"
+        android:paddingRight="0px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/arc_foreground" />
+
+    <TextView
+        android:id="@+id/tv_v_title2"
+        android:layout_width="220dp"
+        android:layout_height="58dp"
+        android:autoText="false"
+        android:fontFamily="@font/carter_one"
+        android:text="TASKS"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <ImageView
+        android:id="@+id/iv_v_tl_homebtn"
+        android:layout_width="74dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="288dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/homehouse_foreground" />
+
+    <ListView
+        android:id="@+id/lv_v_tl_tasklist"
+        android:layout_width="315dp"
+        android:layout_height="430dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_title2" />
+
+    <ImageView
+        android:id="@+id/iv_v_tl_addbtn"
+        android:layout_width="71dp"
+        android:layout_height="69dp"
+        app:srcCompat="@mipmap/ball_foreground"
+        tools:layout_editor_absoluteX="273dp"
+        tools:layout_editor_absoluteY="555dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

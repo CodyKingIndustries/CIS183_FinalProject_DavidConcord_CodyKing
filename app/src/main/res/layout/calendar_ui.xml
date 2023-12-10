@@ -32,12 +32,12 @@
 
     <CalendarView
         android:id="@+id/cv_v_c_calender"
-        android:layout_width="330dp"
-        android:layout_height="288dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="283dp"
+        android:layout_height="286dp"
+        android:layout_marginTop="88dp"
         android:background="#3AC5C0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
