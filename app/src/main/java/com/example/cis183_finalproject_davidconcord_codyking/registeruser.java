@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.content.Intent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -85,10 +86,11 @@ public class registeruser extends AppCompatActivity
                 newUser = true;
                 if (f.equals("") || l.equals("") || u.equals("") || p.equals("") || e.equals("") || a.equals(""))
                 {
-                    tv_j_r_blankerror.setVisibility(View.VISIBLE);
+                    //tv_j_r_blankerror.setVisibility(View.VISIBLE);
+                    Toast.makeText(registeruser.this, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    tv_j_r_blankerror.setVisibility(View.INVISIBLE);
+                    //tv_j_r_blankerror.setVisibility(View.INVISIBLE);
 
                     newUser = true;
 
@@ -108,7 +110,8 @@ public class registeruser extends AppCompatActivity
                     }
                     else
                     {
-                        tv_j_r_usernameerror.setVisibility(View.VISIBLE);
+                        //tv_j_r_usernameerror.setVisibility(View.VISIBLE);
+                        Toast.makeText(registeruser.this, "Username already in use", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

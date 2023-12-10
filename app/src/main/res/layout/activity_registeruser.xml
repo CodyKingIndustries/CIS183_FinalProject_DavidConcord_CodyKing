@@ -8,6 +8,8 @@
     android:background="#732860"
     tools:context=".registeruser">
 
+
+
     <Button
         android:id="@+id/btn_v_r_register"
         android:layout_width="179dp"
@@ -190,21 +192,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="411dp"
-        android:layout_height="149dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Sign up"
-        android:textAlignment="center"
-        android:textColor="#FFFDFD"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/iv_v_r_homebtn"
         android:layout_width="68dp"
@@ -214,5 +201,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/homehouse_foreground" />
+
+    <TextView
+        android:id="@+id/tv_v_title3"
+        android:layout_width="214dp"
+        android:layout_height="67dp"
+        android:autoText="false"
+        android:fontFamily="@font/carter_one"
+        android:text="New User"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.059" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
