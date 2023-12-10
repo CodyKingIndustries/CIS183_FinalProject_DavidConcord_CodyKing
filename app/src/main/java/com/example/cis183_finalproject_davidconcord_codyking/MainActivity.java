@@ -9,20 +9,14 @@ package com.example.cis183_finalproject_davidconcord_codyking;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.content.Intent;
-import java.util.ArrayList;
-import java.util.Calendar;
-
-import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity
 {
-    Button btn_j_register;
+    Button btn_j_login;
 
-    Button btn_j_signIn;
+    Button btn_j_signup;
     Intent registerUser;
     Intent logInUser;
 
@@ -32,9 +26,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_j_register = findViewById(R.id.btn_v_register);
+        btn_j_signup = findViewById(R.id.btn_v_signup);
 
-        btn_j_signIn = findViewById(R.id.btn_v_signIn);
+        btn_j_login = findViewById(R.id.btn_v_login);
 
         registerNewUserButtonEvent();
 
@@ -47,7 +41,7 @@ public class MainActivity extends AppCompatActivity
 
     public void registerNewUserButtonEvent()
     {
-        btn_j_register.setOnClickListener(new View.OnClickListener()
+        btn_j_signup.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -59,7 +53,7 @@ public class MainActivity extends AppCompatActivity
 
     public void signInButtonEvent()
     {
-        btn_j_signIn.setOnClickListener(new View.OnClickListener() {
+        btn_j_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
