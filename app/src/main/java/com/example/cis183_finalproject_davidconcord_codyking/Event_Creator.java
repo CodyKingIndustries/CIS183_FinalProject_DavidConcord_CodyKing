@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,11 +24,11 @@ public class Event_Creator extends AppCompatActivity {
 
     private Spinner dateSpinner;
     private Spinner timeSpinner;
-    private EditText etEventDescription;
-    private Button btnSaveEvent;
+    private EditText et_j_ec_name;
+    private Button btn_j_ec_create;
     private ArrayList<MyEvent> selectedEventList;
     private MyEventAdapter adapter;
-    private Button btnGoBack;
+    private ImageView iv_j_ec_homebtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +37,9 @@ public class Event_Creator extends AppCompatActivity {
 
         dateSpinner = findViewById(R.id.dateSpinner);
         timeSpinner = findViewById(R.id.timeSpinner);
-        etEventDescription = findViewById(R.id.etEventDescription);
-        btnSaveEvent = findViewById(R.id.btnSaveEvent);
-        btnGoBack = findViewById(R.id.btnGoBack);
+        et_j_ec_name = findViewById(R.id.et_v_ec_name);
+        btn_j_ec_create = findViewById(R.id.btn_v_ec_create);
+        iv_j_ec_homebtn = findViewById(R.id.iv_v_ec_homebtn);
 
         // Populate date spinner
         populateDateSpinner();
@@ -50,26 +51,26 @@ public class Event_Creator extends AppCompatActivity {
         selectedEventList = new ArrayList<>();
 
         // Button click event
-        btnSaveEvent.setOnClickListener(new View.OnClickListener() {
+        btn_j_ec_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle save event action
                 String selectedDate = dateSpinner.getSelectedItem().toString();
                 String selectedTime = timeSpinner.getSelectedItem().toString();
-                String eventDescription = etEventDescription.getText().toString();
+                String eventDescription = et_j_ec_name.getText().toString();
 
                 MyEvent myEvent = new MyEvent(selectedDate, selectedTime, eventDescription);
 
                 // Save the selected event to CalendarUI
                 addEventToCalendar(myEvent);
 
-                etEventDescription.setText("");
+                et_j_ec_name.setText("");
 
                 Toast.makeText(Event_Creator.this, "Event Saved: " + selectedDate + " " + selectedTime + "\nDescription: " + eventDescription, Toast.LENGTH_SHORT).show();
             }
         });
 
-        btnGoBack.setOnClickListener(new View.OnClickListener() {
+        iv_j_ec_homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Go back to ChooseOption screen
