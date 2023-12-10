@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#732860"
+    tools:context=".hubpage">
+
+    <Button
+        android:id="@+id/btn_v_h_events"
+        android:layout_width="196dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="456dp"
+        android:backgroundTint="#3AC5C0"
+        android:drawableTint="#388E3C"
+        android:text="Tasks"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_v_h_groups"
+        android:layout_width="196dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="328dp"
+        android:backgroundTint="#3AC5C0"
+        android:drawableTint="#388E3C"
+        android:text="Groups"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_v_h_users"
+        android:layout_width="196dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="196dp"
+        android:backgroundTint="#3AC5C0"
+        android:drawableTint="#388E3C"
+        android:text="Users"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="438dp"
+        android:layout_height="472dp"
+        android:layout_marginBottom="392dp"
+        android:paddingLeft="0px"
+        android:paddingTop="0px"
+        android:paddingRight="0px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/arc_foreground" />
+
+    <ImageView
+        android:id="@+id/iv_v_h_homebtn"
+        android:layout_width="68dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/homehouse_foreground" />
+</androidx.constraintlayout.widget.ConstraintLayout>

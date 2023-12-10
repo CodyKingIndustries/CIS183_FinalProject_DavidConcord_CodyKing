@@ -18,7 +18,7 @@ public class Event_Calendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_ui);
 
-        listView = findViewById(R.id.listView);  // Replace with your actual ListView ID
+        listView = findViewById(R.id.lv_v_c_calender);  // Replace with your actual ListView ID
 
         eventList = new ArrayList<>();
         eventAdapter = new MyEventAdapter(this, eventList);

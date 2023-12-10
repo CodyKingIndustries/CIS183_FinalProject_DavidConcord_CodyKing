@@ -62,7 +62,7 @@ public class ChooseOption extends AppCompatActivity
 
     private void goToHome()
     {
-        Intent intent3 = new Intent(this, MainActivity.class);
+        Intent intent3 = new Intent(this, hubpage.class);
         startActivity(intent3);
     }
 

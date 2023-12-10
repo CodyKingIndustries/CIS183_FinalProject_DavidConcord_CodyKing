@@ -11,7 +11,7 @@
         android:id="@+id/imageView6"
         android:layout_width="559dp"
         android:layout_height="568dp"
-        android:layout_marginBottom="236dp"
+        android:layout_marginBottom="248dp"
         android:paddingLeft="0px"
         android:paddingTop="0px"
         android:paddingRight="0px"
@@ -65,4 +65,5 @@
         app:srcCompat="@mipmap/ball_foreground"
         tools:layout_editor_absoluteX="273dp"
         tools:layout_editor_absoluteY="555dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
