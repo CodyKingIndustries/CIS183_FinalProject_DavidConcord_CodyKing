@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class MyEventAdapter extends ArrayAdapter<MyEvent> {
@@ -21,23 +22,43 @@ public class MyEventAdapter extends ArrayAdapter<MyEvent> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder viewHolder;
+
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_my_event, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_layout, parent, false);
+
+            viewHolder = new ViewHolder();
+            viewHolder.textViewUsername = convertView.findViewById(R.id.textViewUsername);
+            viewHolder.textViewDate = convertView.findViewById(R.id.textViewDate);
+            viewHolder.textViewTime = convertView.findViewById(R.id.textViewTime);
+            viewHolder.textViewDescription = convertView.findViewById(R.id.textViewDescription);
+
+
+            convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        MyEvent event = getItem(position);
+        // Get the data item for this position
+        MyEvent myEvent = getItem(position);
 
-        TextView tvDate = convertView.findViewById(R.id.tvDate);
-        TextView tvTime = convertView.findViewById(R.id.tvTime);
-        TextView tvDescription = convertView.findViewById(R.id.tvDescription);
-
-        if (event != null) {
-            tvDate.setText(event.getDate());
-            tvTime.setText(event.getTime());
-            tvDescription.setText(event.getDescription());
+        // Update the views with the data from MyEvent
+        if (myEvent != null) {
+            viewHolder.textViewUsername.setText(myEvent.getUsername());
+            viewHolder.textViewDate.setText("Date: " + myEvent.getDate());
+            viewHolder.textViewTime.setText("Time: " + myEvent.getTime());
+            viewHolder.textViewDescription.setText("Description: " + myEvent.getDescription());
         }
 
         return convertView;
     }
-}
 
+
+    private static class ViewHolder {
+        TextView textViewUsername;
+        TextView textViewDate;
+
+        TextView textViewTime;
+        TextView textViewDescription;
+    }
+}

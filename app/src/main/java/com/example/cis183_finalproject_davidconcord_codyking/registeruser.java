@@ -1,23 +1,18 @@
+// registeruser.java
 package com.example.cis183_finalproject_davidconcord_codyking;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
-public class registeruser extends AppCompatActivity
-{
+public class registeruser extends AppCompatActivity {
     ImageView iv_j_r_homebtn;
     Button btn_j_r_register;
     EditText et_j_r_fname;
@@ -27,16 +22,14 @@ public class registeruser extends AppCompatActivity
     EditText et_j_r_email;
     EditText et_j_r_age;
     TextView tv_j_r_usernameerror;
-    TextView tv_j_r_blankerror;
     boolean newUser;
     User newestUser;
     UserDatabaseHelper udbHelper;
     ArrayList<User> userList;
-
     Intent mainActivity;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeruser);
 
@@ -48,35 +41,30 @@ public class registeruser extends AppCompatActivity
         et_j_r_password = findViewById(R.id.et_v_r_password);
         et_j_r_email = findViewById(R.id.et_v_r_email);
         et_j_r_age = findViewById(R.id.et_v_r_age);
-        //tv_j_r_blankerror = findViewById(R.id.tv_v_r_blankerror);
-        //tv_j_r_usernameerror = findViewById(R.id.tv_v_r_usernameerror);
+        tv_j_r_usernameerror = findViewById(R.id.tv_v_r_usernameerror);
 
         mainActivity = new Intent(registeruser.this, MainActivity.class);
         udbHelper = new UserDatabaseHelper(this);
+
+        userList = udbHelper.getAllUsers();
 
         backButtonEvent();
         registerButtonEvent();
     }
 
-    public void backButtonEvent()
-    {
-        iv_j_r_homebtn.setOnClickListener(new View.OnClickListener()
-        {
+    public void backButtonEvent() {
+        iv_j_r_homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 startActivity(mainActivity);
             }
         });
     }
 
-    public void registerButtonEvent()
-    {
-        btn_j_r_register.setOnClickListener(new View.OnClickListener()
-        {
+    public void registerButtonEvent() {
+        btn_j_r_register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 String f = et_j_r_fname.getText().toString();
                 String l = et_j_r_lname.getText().toString();
                 String u = et_j_r_username.getText().toString();
@@ -84,33 +72,21 @@ public class registeruser extends AppCompatActivity
                 String e = et_j_r_email.getText().toString();
                 String a = et_j_r_age.getText().toString();
                 newUser = true;
-                if (f.equals("") || l.equals("") || u.equals("") || p.equals("") || e.equals("") || a.equals(""))
-                {
-                    //tv_j_r_blankerror.setVisibility(View.VISIBLE);
+                if (f.equals("") || l.equals("") || u.equals("") || p.equals("") || e.equals("") || a.equals("")) {
                     Toast.makeText(registeruser.this, "All fields must be filled", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    //tv_j_r_blankerror.setVisibility(View.INVISIBLE);
-
+                } else {
                     newUser = true;
-
-                    for (int i = 0; i < userList.size(); i++)
-                    {
-                        if (u.equals(userList.get(i).getUsername()))
-                        {
+                    for (int i = 0; i < userList.size(); i++) {
+                        if (u.equals(userList.get(i).getUsername())) {
                             newUser = false;
                         }
                     }
-                    if (newUser == true)
-                    {
+                    if (newUser) {
                         tv_j_r_usernameerror.setVisibility(View.INVISIBLE);
                         newestUser = new User(f, l, u, p, e, a);
                         udbHelper.addNewUser(newestUser);
                         startActivity(mainActivity);
-                    }
-                    else
-                    {
-                        //tv_j_r_usernameerror.setVisibility(View.VISIBLE);
+                    } else {
                         Toast.makeText(registeruser.this, "Username already in use", Toast.LENGTH_SHORT).show();
                     }
                 }

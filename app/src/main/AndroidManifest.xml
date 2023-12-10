@@ -49,7 +49,7 @@
             android:name=".ChooseOption"
             android:exported="false" />
         <activity
-            android:name=".event_Creator"
+            android:name=".Event_Creator"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

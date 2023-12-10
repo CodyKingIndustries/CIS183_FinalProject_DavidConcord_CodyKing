@@ -18,7 +18,7 @@ public class Event_Calendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_ui);
 
-        listView = findViewById(R.id.lv_v_c_calender);  // Replace with your actual ListView ID
+        listView = findViewById(R.id.lv_v_c_calender);
 
         eventList = new ArrayList<>();
         eventAdapter = new MyEventAdapter(this, eventList);
@@ -28,15 +28,15 @@ public class Event_Calendar extends AppCompatActivity {
         if (getIntent().hasExtra("selectedDateTimeList")) {
             ArrayList<String> selectedDateTimeList = getIntent().getStringArrayListExtra("selectedDateTimeList");
 
-            // Iterate through the list and create MyEvent objects
+
             for (String dateTime : selectedDateTimeList) {
-                // Split the date and time (modify this based on your actual format)
+
                 String[] parts = dateTime.split(" ");
                 String date = parts[0];
                 String time = parts[1];
 
-                // Create MyEvent object and add it to the list
-                MyEvent event = new MyEvent(date, time, "Description"); // Replace "Description" with your actual description or fetch it from the user
+
+                MyEvent event = new MyEvent("username", date, time, "Description");
                 eventList.add(event);
             }
 

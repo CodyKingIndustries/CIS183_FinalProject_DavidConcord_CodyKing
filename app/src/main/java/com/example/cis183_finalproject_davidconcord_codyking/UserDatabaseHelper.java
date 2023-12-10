@@ -58,7 +58,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper
     }
 
     @SuppressLint("Range")
-    public ArrayList<User> getAllRows()
+    public ArrayList<User> getAllUsers()
     {
         ArrayList<User> listUsers = new ArrayList<User>();
 

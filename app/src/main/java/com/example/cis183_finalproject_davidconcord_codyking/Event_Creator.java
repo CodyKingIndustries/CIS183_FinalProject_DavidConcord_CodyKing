@@ -59,7 +59,7 @@ public class Event_Creator extends AppCompatActivity {
                 String selectedTime = timeSpinner.getSelectedItem().toString();
                 String eventDescription = et_j_ec_name.getText().toString();
 
-                MyEvent myEvent = new MyEvent(selectedDate, selectedTime, eventDescription);
+                MyEvent myEvent = new MyEvent("username", selectedDate, selectedTime, eventDescription);
 
                 // Save the selected event to CalendarUI
                 addEventToCalendar(myEvent);
@@ -83,7 +83,7 @@ public class Event_Creator extends AppCompatActivity {
     }
 
     private void populateDateSpinner() {
-        // Populate date spinner with, for example, the next 365 days
+        // Populate date spinner
         ArrayList<String> dates = new ArrayList<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         for (int i = 0; i < 365; i++) {

@@ -3,33 +3,25 @@ package com.example.cis183_finalproject_davidconcord_codyking;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.content.Intent;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
-public class LogInPage extends AppCompatActivity
-{
+public class LogInPage extends AppCompatActivity {
     ImageView iv_j_l_homebtn;
     Button btn_j_l_login;
     EditText et_j_l_username;
     EditText et_j_l_password;
     Intent mainActivity;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_page);
 
@@ -43,13 +35,10 @@ public class LogInPage extends AppCompatActivity
         logInButtonEvent();
     }
 
-    public void homeButtonEvent()
-    {
-        iv_j_l_homebtn.setOnClickListener(new View.OnClickListener()
-        {
+    public void homeButtonEvent() {
+        iv_j_l_homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 startActivity(mainActivity);
             }
         });
@@ -71,8 +60,6 @@ public class LogInPage extends AppCompatActivity
                     // Display an error message or handle invalid credentials
                     Toast.makeText(LogInPage.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                 }
-
-                logInButtonEvent();
             }
         });
     }
@@ -87,26 +74,20 @@ public class LogInPage extends AppCompatActivity
 
     @SuppressLint("Range")
     private String getPasswordFromDatabase(String username) {
-        EventDatabaseHelper dbHelper = new EventDatabaseHelper(this);
+        UserDatabaseHelper dbHelper = new UserDatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT eventpassword FROM Events WHERE eventname = ?", new String[]{username});
+        Cursor cursor = db.rawQuery("SELECT password FROM Users WHERE username = ?", new String[]{username});
 
         String storedPassword = "";
 
         if (cursor.moveToFirst()) {
-            storedPassword = cursor.getString(cursor.getColumnIndex("eventpassword"));
+            storedPassword = cursor.getString(cursor.getColumnIndex("password"));
         }
 
         cursor.close();
         db.close();
 
         return storedPassword;
-    }
-
-    public void calendarScreen()
-    {
-        Intent goToCalendar = new Intent(this, ChooseOption.class);
-        startActivity(goToCalendar);
     }
 }

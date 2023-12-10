@@ -2,7 +2,6 @@ package com.example.cis183_finalproject_davidconcord_codyking;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +32,7 @@ public class CalendarUI extends AppCompatActivity {
                 lv_j_c_calender.setAdapter(eventAdapter);
             }
         }
+
+
     }
-
-
 }

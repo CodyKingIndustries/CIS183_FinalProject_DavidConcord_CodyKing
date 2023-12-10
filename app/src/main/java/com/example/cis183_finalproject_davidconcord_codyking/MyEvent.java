@@ -1,15 +1,26 @@
 package com.example.cis183_finalproject_davidconcord_codyking;
-import java.io.Serializable;
-public class MyEvent implements Serializable{
 
+import java.io.Serializable;
+
+public class MyEvent implements Serializable {
+    private String username;
     private String date;
     private String time;
     private String description;
 
-    public MyEvent(String date, String time, String description) {
+    public MyEvent(String username, String date, String time, String description) {
+        this.username = username;
         this.date = date;
         this.time = time;
         this.description = description;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getDate() {
@@ -35,7 +46,4 @@ public class MyEvent implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
-
-
 }
-
