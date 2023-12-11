@@ -47,10 +47,8 @@ public class Event_Creator extends AppCompatActivity {
         // Populate time spinner
         populateTimeSpinner();
 
-        // Initialize selectedEventList
         selectedEventList = new ArrayList<>();
 
-        // Button click event
         btn_j_ec_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

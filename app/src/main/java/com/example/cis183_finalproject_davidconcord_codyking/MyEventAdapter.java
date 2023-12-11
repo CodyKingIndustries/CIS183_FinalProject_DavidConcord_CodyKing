@@ -39,10 +39,8 @@ public class MyEventAdapter extends ArrayAdapter<MyEvent> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        // Get the data item for this position
         MyEvent myEvent = getItem(position);
 
-        // Update the views with the data from MyEvent
         if (myEvent != null) {
             viewHolder.textViewUsername.setText(myEvent.getUsername());
             viewHolder.textViewDate.setText("Date: " + myEvent.getDate());
