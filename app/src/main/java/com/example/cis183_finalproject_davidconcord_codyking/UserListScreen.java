@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.content.Intent;
+import java.util.ArrayList;
 
 public class UserListScreen extends AppCompatActivity
 {
@@ -15,6 +16,9 @@ public class UserListScreen extends AppCompatActivity
     ListView lv_j_ul_userlist;
     Intent mainActivity;
     Intent addScreen;
+    UserListAdapter userListAdapter;
+    ArrayList<User> userArray;
+    UserDatabaseHelper udbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -26,6 +30,10 @@ public class UserListScreen extends AppCompatActivity
         lv_j_ul_userlist = findViewById(R.id.lv_v_gl_grouplist);
         mainActivity = new Intent(this, hubpage.class);
         addScreen = new Intent(this, registeruser.class);
+        userArray = new ArrayList<User>();
+        userArray = udbHelper.getAllUsers();
+
+        displayUsers();
 
         iv_j_ul_homeBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -44,5 +52,11 @@ public class UserListScreen extends AppCompatActivity
                 startActivity(addScreen);
             }
         });
+    }
+
+    public void displayUsers()
+    {
+        userListAdapter = new UserListAdapter(this, userArray);
+        lv_j_ul_userlist.setAdapter(userListAdapter);
     }
 }

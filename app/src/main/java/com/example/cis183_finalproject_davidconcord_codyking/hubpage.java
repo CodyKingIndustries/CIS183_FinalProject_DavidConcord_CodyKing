@@ -31,7 +31,7 @@ public class hubpage extends AppCompatActivity
         homepage = new Intent(this, MainActivity.class);
         users = new Intent(this, UserListScreen.class);
         groups = new Intent(this, GroupList.class);
-        events = new Intent(this, TaskList.class);
+        events = new Intent(this, ChooseOption.class);
 
         iv_j_h_homebtn.setOnClickListener(new View.OnClickListener()
         {

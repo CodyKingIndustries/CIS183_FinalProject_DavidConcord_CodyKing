@@ -24,7 +24,7 @@ public class GroupList extends AppCompatActivity
         iv_j_gl_homebtn = findViewById(R.id.iv_v_gl_homebtn);
         lv_j_gl_tasklist = findViewById(R.id.lv_v_gl_grouplist);
         mainActivity = new Intent(this, hubpage.class);
-        addScreen = new Intent(this, registeruser.class);
+        addScreen = new Intent(this, registergroup.class);
         iv_j_gl_homebtn.setOnClickListener(new View.OnClickListener()
         {
             @Override

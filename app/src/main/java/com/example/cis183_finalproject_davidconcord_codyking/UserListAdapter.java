@@ -14,11 +14,10 @@ public class UserListAdapter extends BaseAdapter
     Context context;
     ArrayList<User> listOfUsers;
 
-    public UserListAdapter listOfUsers(Context c, ArrayList<User> ls)
+    public UserListAdapter(Context c, ArrayList<User> ls)
     {
         context = c;
         listOfUsers = ls;
-        return null;
     }
 
     @Override

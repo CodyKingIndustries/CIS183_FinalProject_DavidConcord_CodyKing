@@ -54,7 +54,7 @@ public class LogInPage extends AppCompatActivity {
                 // Validate the entered credentials against the database
                 if (isValidCredentials(enteredUsername, enteredPassword)) {
                     // Navigate to ChooseOption activity
-                    Intent goToChooseOption = new Intent(LogInPage.this, ChooseOption.class);
+                    Intent goToChooseOption = new Intent(LogInPage.this, hubpage.class);
                     startActivity(goToChooseOption);
                 } else {
                     // Display an error message or handle invalid credentials
