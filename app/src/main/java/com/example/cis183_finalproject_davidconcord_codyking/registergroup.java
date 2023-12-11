@@ -35,7 +35,8 @@ public class registergroup extends AppCompatActivity
         et_j_rg_groupid = findViewById(R.id.et_v_rg_groupid);
         et_j_rg_groupname = findViewById(R.id.et_v_rg_groupname);
         et_j_rg_grouppassword = findViewById(R.id.et_v_rg_grouppassword);
-
+        gdbHelper = new GroupDatabaseHelper(this);
+        gdbHelper.initializeDB();
         hub = new Intent(this, hubpage.class);
         gdbHelper = new GroupDatabaseHelper(this);
 

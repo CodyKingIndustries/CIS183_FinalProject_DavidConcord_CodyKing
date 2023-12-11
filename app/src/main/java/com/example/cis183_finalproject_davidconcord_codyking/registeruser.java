@@ -81,7 +81,7 @@ public class registeruser extends AppCompatActivity {
                         }
                     }
                     if (newUser) {
-                        tv_j_r_usernameerror.setVisibility(View.INVISIBLE);
+                        //tv_j_r_usernameerror.setVisibility(View.INVISIBLE);
                         newestUser = new User(f, l, u, p, e, a);
                         udbHelper.addNewUser(newestUser);
                         startActivity(mainActivity);
