@@ -1,6 +1,6 @@
 package com.example.cis183_finalproject_davidconcord_codyking;
 import java.io.Serializable;
-public class Event
+public class Event implements Serializable
 {
     String ename;
     String etime;

@@ -1,6 +1,6 @@
 package com.example.cis183_finalproject_davidconcord_codyking;
 import java.io.Serializable;
-public class Group
+public class Group implements Serializable
 {
     String gname;
     String gowner;

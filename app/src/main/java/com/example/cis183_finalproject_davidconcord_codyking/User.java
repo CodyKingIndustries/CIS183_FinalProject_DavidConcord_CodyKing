@@ -1,6 +1,6 @@
 package com.example.cis183_finalproject_davidconcord_codyking;
 import java.io.Serializable;
-public class User
+public class User implements Serializable
 {
     String fname;
     String lname;
