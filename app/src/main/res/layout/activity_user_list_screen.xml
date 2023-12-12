@@ -33,7 +33,7 @@
         app:srcCompat="@mipmap/homehouse_foreground" />
 
     <ListView
-        android:id="@+id/lv_v_gl_grouplist"
+        android:id="@+id/lv_v_ul_userlist"
         android:layout_width="309dp"
         android:layout_height="446dp"
         android:layout_marginTop="104dp"

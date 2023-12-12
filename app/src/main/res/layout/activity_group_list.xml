@@ -8,16 +8,6 @@
     tools:context=".GroupList">
 
 
-    <ListView
-        android:id="@+id/lv_v_gl_grouplist"
-        android:layout_width="309dp"
-        android:layout_height="446dp"
-        android:layout_marginTop="104dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/iv_v_gl_addbtn"
         android:layout_width="72dp"
@@ -63,4 +53,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/homehouse_foreground" />
+
+    <ListView
+        android:id="@+id/lv_v_gl_grouplist"
+        android:layout_width="336dp"
+        android:layout_height="438dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

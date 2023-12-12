@@ -33,11 +33,15 @@ public class GroupList extends AppCompatActivity
         lv_j_gl_grouplist = findViewById(R.id.lv_v_gl_grouplist);
         mainActivity = new Intent(this, hubpage.class);
         addScreen = new Intent(this, registergroup.class);
-        updateScreen = new Intent(this, CRUDupdate.class);
-        detailScreen = new Intent(this, CRUDdescription.class);
+        updateScreen = new Intent(this, CRUDGroupUpdate.class);
+        detailScreen = new Intent(this, CRUDGroupDescription.class);
+        gdbHelper = new GroupDatabaseHelper(this);
+        gdbHelper.initializeDB();
         groupArray = new ArrayList<Group>();
-        groupArray = gdbHelper.getAllRows();
-
+        groupArray = gdbHelper.getAllGroups();
+        displayGroups();
+        updateGroup();;
+        groupDescription();
         iv_j_gl_homebtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -57,31 +61,31 @@ public class GroupList extends AppCompatActivity
         });
     }
 
-    public void displayUsers()
+    public void displayGroups()
     {
         groupListAdapter = new GroupListAdapter(this, groupArray);
         lv_j_gl_grouplist.setAdapter(groupListAdapter);
     }
-    public void userDescription()
+    public void groupDescription()
     {
         lv_j_gl_grouplist.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                detailScreen.putExtra("User", groupArray.get(i));
+                detailScreen.putExtra("Group", groupArray.get(i));
                 startActivity(detailScreen);
             }
         });
     }
-    public void updateUser()
+    public void updateGroup()
     {
         lv_j_gl_grouplist.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener()
         {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                updateScreen.putExtra("User", groupArray.get(i));
+                updateScreen.putExtra("Group", groupArray.get(i));
                 startActivity(updateScreen);
                 return false;
             }

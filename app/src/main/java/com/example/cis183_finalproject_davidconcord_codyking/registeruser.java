@@ -71,21 +71,27 @@ public class registeruser extends AppCompatActivity {
                 String e = et_j_r_email.getText().toString();
                 String a = et_j_r_age.getText().toString();
                 newUser = true;
-                if (f.equals("") || l.equals("") || u.equals("") || p.equals("") || e.equals("") || a.equals("")) {
+                if (f.equals("") || l.equals("") || u.equals("") || p.equals("") || e.equals("") || a.equals(""))
+                {
                     Toast.makeText(registeruser.this, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 } else {
                     newUser = true;
-                    for (int i = 0; i < userList.size(); i++) {
-                        if (u.equals(userList.get(i).getUsername())) {
+                    for (int i = 0; i < userList.size(); i++)
+                    {
+                        if (u.equals(userList.get(i).getUsername()))
+                        {
                             newUser = false;
                         }
                     }
-                    if (newUser) {
+                    if (newUser)
+                    {
                         //tv_j_r_usernameerror.setVisibility(View.INVISIBLE);
                         newestUser = new User(f, l, u, p, e, a);
                         udbHelper.addNewUser(newestUser);
                         startActivity(mainActivity);
-                    } else {
+                    }
+                    else
+                    {
                         Toast.makeText(registeruser.this, "Username already in use", Toast.LENGTH_SHORT).show();
                     }
                 }

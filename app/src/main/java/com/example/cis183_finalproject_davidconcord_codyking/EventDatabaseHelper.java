@@ -20,15 +20,13 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (eventname TEXT PRIMARY KEY NOT NULL, " +
-                "ename TEXT, etime TEXT, edate TEXT, eauther TEXT, egid TEXT, eventpassword TEXT);");
+                "ename TEXT, etime TEXT, edate TEXT, eauther TEXT, egid TEXT);");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1)
     {
-        //In case I change the version number of the database
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME + ";");
-        //Then make new table
         onCreate(db);
     }
 

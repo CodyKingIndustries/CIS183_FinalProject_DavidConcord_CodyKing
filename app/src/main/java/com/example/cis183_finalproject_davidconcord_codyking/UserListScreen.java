@@ -30,7 +30,7 @@ public class UserListScreen extends AppCompatActivity
 
         iv_j_ul_addBtn = findViewById(R.id.iv_v_ul_addbtn);
         iv_j_ul_homeBtn = findViewById(R.id.iv_v_ul_homebtn);
-        lv_j_ul_userlist = findViewById(R.id.lv_v_gl_grouplist);
+        lv_j_ul_userlist = findViewById(R.id.lv_v_ul_userlist);
         mainActivity = new Intent(this, hubpage.class);
         updateScreen = new Intent(this, CRUDupdate.class);
         detailScreen = new Intent(this, CRUDdescription.class);

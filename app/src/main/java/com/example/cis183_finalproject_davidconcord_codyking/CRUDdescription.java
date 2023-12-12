@@ -27,7 +27,7 @@ public class CRUDdescription extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cruddescription);
-        tv_j_d_fname = findViewById(R.id.tv_v_dg_fname);
+        tv_j_d_fname = findViewById(R.id.tv_v_d_fname);
         tv_j_d_lname = findViewById(R.id.tv_v_d_lname);
         tv_j_d_username = findViewById(R.id.tv_v_d_username);
         tv_j_d_password = findViewById(R.id.tv_v_d_password);

@@ -19,7 +19,7 @@ public class GroupDatabaseHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (groupname TEXT PRIMARY KEY NOT NULL, gname TEXT, gowner TEXT, gid TEXT);");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (gname TEXT PRIMARY KEY NOT NULL, gowner TEXT, gid TEXT);");
     }
 
     @Override
@@ -57,7 +57,7 @@ public class GroupDatabaseHelper extends SQLiteOpenHelper
     }
 
     @SuppressLint("Range")
-    public ArrayList<Group> getAllRows()
+    public ArrayList<Group> getAllGroups()
     {
         ArrayList<Group> listGroups = new ArrayList<Group>();
 
@@ -75,9 +75,9 @@ public class GroupDatabaseHelper extends SQLiteOpenHelper
         {
             do
             {
-                n = cursor.getString(cursor.getColumnIndex("groupname"));
-                o = cursor.getString(cursor.getColumnIndex("groupowner"));
-                i = cursor.getString(cursor.getColumnIndex("groupid"));
+                n = cursor.getString(cursor.getColumnIndex("gname"));
+                o = cursor.getString(cursor.getColumnIndex("gowner"));
+                i = cursor.getString(cursor.getColumnIndex("gid"));
 
                 listGroups.add(new Group(n, o, i));
             }
@@ -85,7 +85,6 @@ public class GroupDatabaseHelper extends SQLiteOpenHelper
         }
 
         db.close();
-
         return listGroups;
     }
 
@@ -96,11 +95,11 @@ public class GroupDatabaseHelper extends SQLiteOpenHelper
         db.close();
     }
 
-    public void deleteGroup(String gid)
+    public void deleteGroup(String gname)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE gid = '" + gid + "';");
+        db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE gname = '" + gname + "';");
         db.close();
     }
 
@@ -108,7 +107,7 @@ public class GroupDatabaseHelper extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String updateCommand = "UPDATE " + TABLE_NAME + " SET gname = '" + g.getGname() + "' , gowner = '" + g.getGowner() + "' , gid = '" + g.getGid() + "' WHERE username = '" + g.getGid() + "';";
+        String updateCommand = "UPDATE " + TABLE_NAME + " SET gname = '" + g.getGname() + "' , gowner = '" + g.getGowner() + "' , gid = '" + g.getGid() + "' WHERE gname = '" + g.getGname() + "';";
         db.execSQL(updateCommand);
         db.close();
     }

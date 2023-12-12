@@ -45,12 +45,13 @@ public class GroupListAdapter extends BaseAdapter
         if (view == null)
         {
             LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            view = mInflater.inflate(R.layout.usercell, null);
+            view = mInflater.inflate(R.layout.groupcell, null);
         }
-        TextView tv_j_usercell_username = view.findViewById(R.id.tv_v_usercell_username);
-        TextView tv_j_usercell_lnamefname = view.findViewById(R.id.tv_v_usercell_lnamefname);
+        TextView tv_j_groupcell_groupname = view.findViewById(R.id.tv_v_groupcell_groupname);
+        TextView tv_j_groupcell_groupowner = view.findViewById(R.id.tv_v_groupcell_groupowner);
         Group group = listOfGroups.get(i);
-        tv_j_usercell_username.setText(group.getGname());
+        tv_j_groupcell_groupname.setText(group.getGname());
+        tv_j_groupcell_groupowner.setText(group.getGowner());
 
         return view;
     }

@@ -40,7 +40,7 @@ public class registergroup extends AppCompatActivity
         hub = new Intent(this, hubpage.class);
         gdbHelper = new GroupDatabaseHelper(this);
 
-        groupList = gdbHelper.getAllRows();
+        groupList = gdbHelper.getAllGroups();
 
         backButtonEvent();
         registerButtonEvent();
@@ -59,24 +59,31 @@ public class registergroup extends AppCompatActivity
         btn_j_rg_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String f = et_j_rg_groupid.getText().toString();
-                String l = et_j_rg_grouppassword.getText().toString();
-                String u = et_j_rg_groupname.getText().toString();
+                String n = et_j_rg_groupid.getText().toString();
+                String o = et_j_rg_grouppassword.getText().toString();
+                String gn = et_j_rg_groupname.getText().toString();
                 newGroup = true;
-                if (f.equals("") || l.equals("") || u.equals("")) {
+                if (n.equals("") || o.equals("") || gn.equals("")) {
                     Toast.makeText(registergroup.this, "All fields must be filled", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else
+                {
                     newGroup = true;
-                    for (int i = 0; i < groupList.size(); i++) {
-                        if (u.equals(groupList.get(i).getGname())) {
+                    for (int i = 0; i < groupList.size(); i++)
+                    {
+                        if (n.equals(groupList.get(i).getGname()))
+                        {
                             newGroup = false;
                         }
                     }
-                    if (newGroup) {
-                        newestGroup = new Group(f, l, u);
+                    if (newGroup)
+                    {
+                        newestGroup = new Group(n, o, gn);
                         gdbHelper.addNewGroup(newestGroup);
                         startActivity(hub);
-                    } else {
+                    }
+                    else
+                    {
                         Toast.makeText(registergroup.this, "Group name already in use", Toast.LENGTH_SHORT).show();
                     }
                 }
