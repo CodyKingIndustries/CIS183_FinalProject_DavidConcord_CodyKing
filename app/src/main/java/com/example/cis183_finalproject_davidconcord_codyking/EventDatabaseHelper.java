@@ -20,7 +20,7 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (eventname TEXT PRIMARY KEY NOT NULL, " +
-                "ename TEXT, etime TEXT, edate TEXT, eauther TEXT, egid TEXT);");
+                "ename TEXT, etime TEXT, edate TEXT, egid TEXT);");
     }
 
     @Override
@@ -69,7 +69,6 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
         String n;
         String t;
         String d;
-        String a;
         String i;
 
         if (cursor.moveToFirst())
@@ -79,10 +78,9 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
                 n = cursor.getString(cursor.getColumnIndex("eventname"));
                 t = cursor.getString(cursor.getColumnIndex("etime")); // Corrected column name
                 d = cursor.getString(cursor.getColumnIndex("edate")); // Corrected column name
-                a = cursor.getString(cursor.getColumnIndex("eauther")); // Corrected column name
                 i = cursor.getString(cursor.getColumnIndex("egid")); // Corrected column name
 
-                listEvents.add(new Event(n, t, d, a, i));
+                listEvents.add(new Event(n, t, d, i));
             }
             while (cursor.moveToNext());
         }
@@ -97,7 +95,7 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
     public void addNewEvent(Event e)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES ('" + e.getEname() + "','" + e.getEtime() + "','" + e.getEdate() + "','" + e.getEauthor() + "','" + e.getEgid() + "');");
+        db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES ('" + e.getEname() + "','" + e.getEtime() + "','" + e.getEdate() + "','" + e.getEgid() + "');");
         db.close();
     }
 
@@ -113,7 +111,7 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String updateCommand = "UPDATE " + TABLE_NAME + " SET ename = '" + e.getEname() + "' , etime = '" + e.getEtime() + "' , edate = '" + e.getEdate() + "' , eauthor = '" + e.getEauthor() + "' , egid = '" + e.getEgid() + "' WHERE ename = '" + e.getEname() + "';";
+        String updateCommand = "UPDATE " + TABLE_NAME + " SET ename = '" + e.getEname() + "' , etime = '" + e.getEtime() + "' , edate = '" + e.getEdate() + "' , egid = '" + e.getEgid() + "' WHERE ename = '" + e.getEname() + "';";
         db.execSQL(updateCommand);
         db.close();
     }
