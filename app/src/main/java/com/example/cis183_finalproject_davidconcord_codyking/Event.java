@@ -6,17 +6,28 @@ public class Event implements Serializable
     String etime;
     String edate;
     String egid;
+
+    public String getEauthor() {
+        return eauthor;
+    }
+
+    public void setEauthor(String eauthor) {
+        this.eauthor = eauthor;
+    }
+
+    String eauthor;
     public Event()
     {
 
     }
 
-    public Event(String n, String t, String d, String i)
+    public Event(String n, String t, String d, String i, String e)
     {
         ename = n;
         etime = t;
         edate = d;
         egid = i;
+        eauthor = e;
     }
 
     public String getEname()

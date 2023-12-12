@@ -22,7 +22,7 @@ public class EventCrud {
         values.put("ename", event.getEname());
         values.put("etime", event.getEtime());
         values.put("edate", event.getEdate());
-        values.put("eauthor", event.getEauthor());
+        //values.put("eauthor", event.getEauthor());
         values.put("egid", event.getEgid());
         db.insert("Events", null, values);
         db.close();
@@ -41,7 +41,7 @@ public class EventCrud {
                 @SuppressLint("Range") String author = cursor.getString(cursor.getColumnIndex("eauther"));
                 @SuppressLint("Range") String gid = cursor.getString(cursor.getColumnIndex("egid"));
 
-                Event event = new Event(name, time, date, author, gid);
+                Event event = new Event(name, time, date, gid);
                 eventList.add(event);
             } while (cursor.moveToNext());
         }
@@ -57,7 +57,7 @@ public class EventCrud {
         values.put("ename", event.getEname());
         values.put("etime", event.getEtime());
         values.put("edate", event.getEdate());
-        values.put("eauthor", event.getEauthor());
+        //values.put("eauthor", event.getEauthor());
         values.put("egid", event.getEgid());
 
         db.update("Events", values, "eventname=?", new String[]{event.getEname()});

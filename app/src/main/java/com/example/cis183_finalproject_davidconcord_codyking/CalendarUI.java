@@ -2,6 +2,8 @@ package com.example.cis183_finalproject_davidconcord_codyking;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,9 +32,21 @@ public class CalendarUI extends AppCompatActivity {
                 eventList.add(myEvent);
                 eventAdapter = new MyEventAdapter(this, eventList);
                 lv_j_c_calender.setAdapter(eventAdapter);
+
+
+                lv_j_c_calender.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // Handle item click
+                        MyEvent clickedEvent = eventList.get(position);
+
+                        // Start the CRUD activity
+                        Intent crudIntent = new Intent(CalendarUI.this, CRUDEventDescribe.class);
+                        crudIntent.putExtra("clickedEvent", clickedEvent);
+                        startActivity(crudIntent);
+                    }
+                });
             }
         }
-
-
     }
 }

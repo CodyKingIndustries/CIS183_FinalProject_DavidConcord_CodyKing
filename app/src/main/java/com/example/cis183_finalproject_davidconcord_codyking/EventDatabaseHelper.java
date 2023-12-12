@@ -20,7 +20,7 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (eventname TEXT PRIMARY KEY NOT NULL, " +
-                "ename TEXT, etime TEXT, edate TEXT, egid TEXT);");
+                "etime TEXT, edate TEXT, egid TEXT);");
     }
 
     @Override
