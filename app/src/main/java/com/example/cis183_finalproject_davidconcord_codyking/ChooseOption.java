@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,12 @@ public class ChooseOption extends AppCompatActivity
     ImageView iv_j_ct_calender;
     ImageView iv_j_ct_tasks;
     ImageView iv_j_ct_homebtn;
+    TextView tv_j_ct_groupname;
+    Group group;
+    String eventDate;
+    Intent goToQuery;
+    Intent goToList;
+    int option;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,39 +32,42 @@ public class ChooseOption extends AppCompatActivity
         iv_j_ct_calender = findViewById(R.id.iv_v_ct_calender);
         iv_j_ct_tasks = findViewById(R.id.iv_v_ct_tasks);
         iv_j_ct_homebtn = findViewById(R.id.iv_v_ct_homebtn);
+        tv_j_ct_groupname = findViewById(R.id.tv_v_ct_groupname);
+        Intent cameFrom = getIntent();
+        group = (Group) cameFrom.getSerializableExtra("Group");
+        goToQuery = new Intent(this, CalendarUI.class);
+        goToList = new Intent(this, TaskList.class);
+        tv_j_ct_groupname.setText(group.getGname());
+        option = 0;
+        eventDate = "null";
 
         iv_j_ct_calender.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View view) {
-                goToCalendar();
+            public void onClick(View view)
+            {
+                goToQuery.putExtra("EventDate", eventDate);
+                goToQuery.putExtra("Num", option);
+                goToQuery.putExtra("Group", group);
+                startActivity(goToQuery);;
             }
         });
 
         iv_j_ct_tasks.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                goToEventCreator();
+            public void onClick(View view)
+            {
+                goToList.putExtra("Group", group);
+                startActivity(goToList);
             }
         });
         iv_j_ct_homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 goToHome();
             }
         });
-    }
-
-    private void goToCalendar()
-    {
-        Intent intent2 = new Intent(this, CalendarUI.class);
-        startActivity(intent2);
-    }
-
-    private void goToEventCreator()
-    {
-        Intent intent = new Intent(this, Event_Creator.class);
-        startActivity(intent);
     }
 
     private void goToHome()

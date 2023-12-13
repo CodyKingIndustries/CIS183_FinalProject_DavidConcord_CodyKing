@@ -43,14 +43,15 @@ public class EventListAdapter extends BaseAdapter
         if (view == null)
         {
             LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            view = mInflater.inflate(R.layout.groupcell, null);
+            view = mInflater.inflate(R.layout.eventcell, null);
         }
-        TextView tv_j_groupcell_groupname = view.findViewById(R.id.tv_v_groupcell_groupname);
-        TextView tv_j_groupcell_groupowner = view.findViewById(R.id.tv_v_groupcell_groupowner);
+        TextView tv_j_eventcell_eventname = view.findViewById(R.id.tv_v_eventcell_eventname);
+        TextView tv_j_eventcell_eventdate = view.findViewById(R.id.tv_v_eventcell_eventdate);
+        TextView tv_j_eventcell_eventtime = view.findViewById(R.id.tv_v_eventcell_eventtime);
         Event event = listOfEvents.get(i);
-        tv_j_groupcell_groupname.setText(event.getEname());
-        tv_j_groupcell_groupowner.setText(event.getEdate());
-        tv_j_groupcell_groupowner.setText(event.getEtime());
+        tv_j_eventcell_eventname.setText(event.getEname());
+        tv_j_eventcell_eventdate.setText(event.getEdate());
+        tv_j_eventcell_eventtime.setText(event.getEtime());
 
         return view;
     }

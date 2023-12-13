@@ -7,17 +7,17 @@
     android:background="#732860"
     tools:context=".ChooseOption">
 
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="508dp"
         android:layout_height="478dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="224dp"
         android:paddingLeft="0px"
         android:paddingTop="0px"
         android:paddingRight="0px"
         app:layout_constraintBottom_toBottomOf="@+id/iv_v_ct_tasks"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/arc_foreground" />
 
@@ -25,8 +25,9 @@
         android:id="@+id/iv_v_ct_tasks"
         android:layout_width="213dp"
         android:layout_height="189dp"
-        android:layout_marginTop="392dp"
+        android:layout_marginTop="424dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/task_foreground" />
@@ -35,9 +36,10 @@
         android:id="@+id/iv_v_ct_calender"
         android:layout_width="221dp"
         android:layout_height="199dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/calender_foreground" />
 
@@ -46,8 +48,25 @@
         android:layout_width="74dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="288dp"
+        android:layout_marginEnd="284dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/homehouse_foreground" />
+
+    <TextView
+        android:id="@+id/tv_v_ct_groupname"
+        android:layout_width="220dp"
+        android:layout_height="58dp"
+        android:autoText="false"
+        android:fontFamily="@font/carter_one"
+        android:text="GROUP"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
 </androidx.constraintlayout.widget.ConstraintLayout>

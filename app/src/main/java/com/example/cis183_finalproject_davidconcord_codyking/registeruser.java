@@ -29,7 +29,8 @@ public class registeruser extends AppCompatActivity {
     Intent mainActivity;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeruser);
 
@@ -51,7 +52,8 @@ public class registeruser extends AppCompatActivity {
         registerButtonEvent();
     }
 
-    public void backButtonEvent() {
+    public void backButtonEvent()
+    {
         iv_j_r_homebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,10 +62,13 @@ public class registeruser extends AppCompatActivity {
         });
     }
 
-    public void registerButtonEvent() {
-        btn_j_r_register.setOnClickListener(new View.OnClickListener() {
+    public void registerButtonEvent()
+    {
+        btn_j_r_register.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 String f = et_j_r_fname.getText().toString();
                 String l = et_j_r_lname.getText().toString();
                 String u = et_j_r_username.getText().toString();

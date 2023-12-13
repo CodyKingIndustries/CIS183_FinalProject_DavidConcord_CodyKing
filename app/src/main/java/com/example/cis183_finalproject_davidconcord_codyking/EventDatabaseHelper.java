@@ -19,8 +19,7 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (eventname TEXT PRIMARY KEY NOT NULL, " +
-                "etime TEXT, edate TEXT, egid TEXT);");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ename TEXT PRIMARY KEY NOT NULL, etime TEXT, edate TEXT, egid TEXT);");
     }
 
     @Override
@@ -56,7 +55,7 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
     }
 
     @SuppressLint("Range")
-    public ArrayList<Event> getAllRows()
+    public ArrayList<Event> getAllEvents()
     {
         ArrayList<Event> listEvents = new ArrayList<Event>();
 
@@ -69,18 +68,18 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
         String n;
         String t;
         String d;
-        String i;
+        String gi;
 
         if (cursor.moveToFirst())
         {
             do
             {
-                n = cursor.getString(cursor.getColumnIndex("eventname"));
+                n = cursor.getString(cursor.getColumnIndex("ename"));
                 t = cursor.getString(cursor.getColumnIndex("etime")); // Corrected column name
                 d = cursor.getString(cursor.getColumnIndex("edate")); // Corrected column name
-                i = cursor.getString(cursor.getColumnIndex("egid")); // Corrected column name
+                gi = cursor.getString(cursor.getColumnIndex("egid")); // Corrected column name
 
-                listEvents.add(new Event(n, t, d, i));
+                listEvents.add(new Event(n, t, d, gi));
             }
             while (cursor.moveToNext());
         }
@@ -115,4 +114,148 @@ public class EventDatabaseHelper extends SQLiteOpenHelper
         db.execSQL(updateCommand);
         db.close();
     }
+
+    @SuppressLint("Range")
+    public ArrayList<Event> getAllEventsByGroup(String gname)
+    {
+        ArrayList<Event> listEventsByGroup = new ArrayList<Event>();
+
+        String selectQuery = (" SELECT * FROM " + TABLE_NAME + " WHERE egid = '" + gname + "';");
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        String n;
+        String t;
+        String d;
+        String gi;
+
+        if (cursor.moveToFirst())
+        {
+            do
+            {
+                n = cursor.getString(cursor.getColumnIndex("ename"));
+                t = cursor.getString(cursor.getColumnIndex("etime")); // Corrected column name
+                d = cursor.getString(cursor.getColumnIndex("edate")); // Corrected column name
+                gi = cursor.getString(cursor.getColumnIndex("egid")); // Corrected column name
+
+                listEventsByGroup.add(new Event(n, t, d, gi));
+            }
+            while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return listEventsByGroup;
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<Event> getAllEventsByDate(String edate)
+    {
+        ArrayList<Event> listEventsByDate = new ArrayList<Event>();
+
+        String selectQuery = (" SELECT * FROM " + TABLE_NAME + " WHERE edate = '" + edate + "';");
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        String n;
+        String t;
+        String d;
+        String gi;
+
+        if (cursor.moveToFirst())
+        {
+            do
+            {
+                n = cursor.getString(cursor.getColumnIndex("ename"));
+                t = cursor.getString(cursor.getColumnIndex("etime")); // Corrected column name
+                d = cursor.getString(cursor.getColumnIndex("edate")); // Corrected column name
+                gi = cursor.getString(cursor.getColumnIndex("egid")); // Corrected column name
+
+                listEventsByDate.add(new Event(n, t, d, gi));
+            }
+            while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return listEventsByDate;
+    }
+    @SuppressLint("Range")
+    public ArrayList<Event> getAllEventsByAsc()
+    {
+        ArrayList<Event> listEventsByDate = new ArrayList<Event>();
+
+        String selectQuery = " SELECT * FROM " + TABLE_NAME + " ORDER BY edate ASC " ;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        String n;
+        String t;
+        String d;
+        String gi;
+
+        if (cursor.moveToFirst())
+        {
+            do
+            {
+                n = cursor.getString(cursor.getColumnIndex("ename"));
+                t = cursor.getString(cursor.getColumnIndex("etime")); // Corrected column name
+                d = cursor.getString(cursor.getColumnIndex("edate")); // Corrected column name
+                gi = cursor.getString(cursor.getColumnIndex("egid")); // Corrected column name
+
+                listEventsByDate.add(new Event(n, t, d, gi));
+            }
+            while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return listEventsByDate;
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<Event> getAllEventsByDesc()
+    {
+        ArrayList<Event> listEventsByDate = new ArrayList<Event>();
+
+        String selectQuery = " SELECT * FROM " + TABLE_NAME + " ORDER BY edate Desc " ;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        String n;
+        String t;
+        String d;
+        String gi;
+
+        if (cursor.moveToFirst())
+        {
+            do
+            {
+                n = cursor.getString(cursor.getColumnIndex("ename"));
+                t = cursor.getString(cursor.getColumnIndex("etime")); // Corrected column name
+                d = cursor.getString(cursor.getColumnIndex("edate")); // Corrected column name
+                gi = cursor.getString(cursor.getColumnIndex("egid")); // Corrected column name
+
+                listEventsByDate.add(new Event(n, t, d, gi));
+            }
+            while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return listEventsByDate;
+    }
+
 }
